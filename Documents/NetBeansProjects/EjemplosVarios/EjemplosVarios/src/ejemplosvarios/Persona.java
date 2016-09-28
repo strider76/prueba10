@@ -21,7 +21,7 @@ public class Persona {
     private String nombre="";
     private int edad=0;
     private String dni="";
-    private char sexo='H'; // H -> hombre, M-> Mujer
+    private char sexo=this.HOMBRE; // H -> hombre, M-> Mujer
     private int peso=0; // en Kg
     private int altura=0; // en cms
     
@@ -32,13 +32,13 @@ public class Persona {
     public Persona(String nombre,int edad, char sexo){
         this.nombre=nombre;
         this.edad=edad;
-        this.sexo=sexo;
+        this.comprobarSexo(sexo);
     }
     
     public Persona (String nombre, String dni, int edad, char sexo, int peso, int altura ){
         this.nombre=nombre;
         this.edad=edad;
-        this.sexo=sexo;
+        this.comprobarSexo(sexo);
         this.dni=dni;
         this.peso=peso;
         this.altura=altura;   
@@ -64,6 +64,13 @@ public class Persona {
 
     public boolean esMayorDeEdad(){
         return this.edad>=18;
+    }
+    
+    private void comprobarSexo(char sexo){
+        if ((sexo!=this.HOMBRE) && (sexo!=this.MUJER))
+            this.sexo=this.HOMBRE;
+        else
+            this.sexo=sexo;
     }
     
 }
