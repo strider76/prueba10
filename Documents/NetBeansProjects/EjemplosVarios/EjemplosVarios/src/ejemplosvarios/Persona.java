@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package ejemplosvarios;
+import java.util.Random;
 
 /**
  *
@@ -26,20 +27,21 @@ public class Persona {
     private int altura=0; // en cms
     
     public Persona(){
-
+           this.generarDNI();
     }
     
     public Persona(String nombre,int edad, char sexo){
         this.nombre=nombre;
         this.edad=edad;
         this.comprobarSexo(sexo);
+        this.generarDNI();
     }
     
-    public Persona (String nombre, String dni, int edad, char sexo, int peso, int altura ){
+    public Persona (String nombre, int edad, char sexo, int peso, int altura ){
         this.nombre=nombre;
         this.edad=edad;
         this.comprobarSexo(sexo);
-        this.dni=dni;
+        this.generarDNI();
         this.peso=peso;
         this.altura=altura;   
     }
@@ -71,6 +73,40 @@ public class Persona {
             this.sexo=this.HOMBRE;
         else
             this.sexo=sexo;
+    }
+    
+    /**
+     *
+     * override del metodo toString
+     * @return cadena
+     */
+    @Override
+    public String toString(){
+        
+        String cadena="";
+        
+        cadena+="Nombre: "+this.nombre+"\n";
+        cadena+="DNI: "+this.dni+"\n";
+        cadena+="Sexo: "+ ((this.sexo==this.HOMBRE)?"HOMBRE":"MUJER")+"\n";
+        cadena+="Edad: "+ this.edad + " años\n";
+        cadena+="Peso: "+ this.peso + " Kg.\n";
+        cadena+="Altura: "+ this.altura + " cms.\n";
+        
+        return cadena;
+        
+    }
+    
+    private void generarDNI(){
+        String dni="";
+        Random aleatorio=new Random();
+        final int INICIO=65;
+        
+        for (int i=0;i<8;i++){
+            dni+=aleatorio.nextInt(9);
+        }
+        dni+=(char) (INICIO+aleatorio.nextInt(25));
+        
+        this.dni=dni;
     }
     
 }
