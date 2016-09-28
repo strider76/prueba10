@@ -14,6 +14,10 @@ public class Persona {
     public final char HOMBRE='H';
     public final char MUJER='M';
     
+    public final int SOBREPESO=1;
+    public final int PESOIDEAL=0;
+    public final int INFRAPESO=-1;
+    
     private String nombre="";
     private int edad=0;
     private String dni="";
@@ -38,6 +42,24 @@ public class Persona {
         this.dni=dni;
         this.peso=peso;
         this.altura=altura;   
+    }
+    
+    public int calcularIMC(){
+        
+        double imc;
+        
+        if (this.altura==0)
+            return this.INFRAPESO;
+        else {
+            imc=this.peso/Math.pow(this.altura/100,2);
+            if (imc<18)
+                return this.INFRAPESO;
+            else if ((imc>=18)&&(imc<25))
+                return this.PESOIDEAL;
+            else
+                return this.SOBREPESO;
+        }
+
     }
     
     
