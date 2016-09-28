@@ -11,12 +11,34 @@ package ejemplosvarios;
  */
 public class Persona {
     
-    private String nombre;
-    private int edad;
-    private String dni;
-    private char sexo; // H -> hombre, M-> Mujer
-    private int peso; // en Kg
-    private int altura; // en cms
+    public final char HOMBRE='H';
+    public final char MUJER='M';
+    
+    private String nombre="";
+    private int edad=0;
+    private String dni="";
+    private char sexo='H'; // H -> hombre, M-> Mujer
+    private int peso=0; // en Kg
+    private int altura=0; // en cms
+    
+    public Persona(){
+
+    }
+    
+    public Persona(String nombre,int edad, char sexo){
+        this.nombre=nombre;
+        this.edad=edad;
+        this.sexo=sexo;
+    }
+    
+    public Persona (String nombre, String dni, int edad, char sexo, int peso, int altura ){
+        this.nombre=nombre;
+        this.edad=edad;
+        this.sexo=sexo;
+        this.dni=dni;
+        this.peso=peso;
+        this.altura=altura;   
+    }
     
     
 }
