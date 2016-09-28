@@ -61,6 +61,9 @@ public class Persona {
         }
 
     }
-    
+
+    public boolean esMayorDeEdad(){
+        return this.edad>=18;
+    }
     
 }
