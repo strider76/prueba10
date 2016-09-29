@@ -31,19 +31,28 @@ public class Persona {
     }
     
     public Persona(String nombre,int edad, char sexo){
-        this.nombre=nombre;
-        this.edad=edad;
-        this.comprobarSexo(sexo);
-        this.generarDNI();
+        try{
+            this.setNombre(nombre);
+            this.setEdad(edad);
+            this.comprobarSexo(sexo);
+            this.generarDNI();
+        } catch (IllegalArgumentException e) {
+            e.getMessage();
+        }
+        
     }
     
     public Persona (String nombre, int edad, char sexo, int peso, int altura ){
-        this.nombre=nombre;
-        this.edad=edad;
-        this.comprobarSexo(sexo);
-        this.generarDNI();
-        this.peso=peso;
-        this.altura=altura;   
+        try{
+            this.setNombre(nombre);
+            this.setEdad(edad);
+            this.comprobarSexo(sexo);
+            this.generarDNI();
+            this.setPeso(peso);
+            this.setAltura(altura);
+        } catch (IllegalArgumentException e) {
+            e.getMessage();
+        }
     }
     
     public int calcularIMC(){
@@ -107,6 +116,33 @@ public class Persona {
         dni+=(char) (INICIO+aleatorio.nextInt(25));
         
         this.dni=dni;
+    } 
+    
+    public void setNombre (String nombre) {
+        this.nombre=nombre;
     }
     
+    public void setEdad (int edad) throws IllegalArgumentException {
+        if (edad<0){
+            throw new IllegalArgumentException("No se puede poner una edad Negativa");
+        } else {
+            this.edad=edad;
+        } 
+    }
+    
+    public void setPeso (int peso) throws IllegalArgumentException {
+        if (peso<0){
+            throw new IllegalArgumentException("No se puede poner una peso negativo");
+        } else {
+            this.peso=peso;
+        } 
+    }
+
+    public void setAltura (int altura) throws IllegalArgumentException {
+        if (altura<0){
+            throw new IllegalArgumentException("No se puede poner una altuta negativa");
+        } else {
+            this.altura=altura;
+        } 
+    }
 }
