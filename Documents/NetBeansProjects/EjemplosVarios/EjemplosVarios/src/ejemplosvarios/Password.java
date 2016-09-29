@@ -22,15 +22,8 @@ public class Password {
     
     public Password (int longitud) {
         
-        char[] s={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E'
-                    ,'F','G','H','I','J','K','L','M','N','O','P','Q','R','S'
-                    ,'T','U','W','X','Y','Z','a','b','c','d','e','f','g','h'
-                    ,'i','j','k','l','m','n','o','p','q','r','s','t','u','w'
-                    ,'x','y','z'};
-        Random ra=new Random();
-        for (int i=0;i<longitud;i++){
-            this.contraseña+=s[ra.nextInt(s.length)];
-        }
+        this.contraseña=this.generarPassword(longitud);
+        
     }
     
     public boolean esFuerte(){
@@ -54,5 +47,20 @@ public class Password {
             return true;
         else
             return false;
+    }
+    
+    public String generarPassword (int longitud){
+        
+        String clave="";
+        char[] s={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E'
+                    ,'F','G','H','I','J','K','L','M','N','O','P','Q','R','S'
+                    ,'T','U','W','X','Y','Z','a','b','c','d','e','f','g','h'
+                    ,'i','j','k','l','m','n','o','p','q','r','s','t','u','w'
+                    ,'x','y','z'};
+        Random ra=new Random();
+        for (int i=0;i<longitud;i++){
+            clave+=s[ra.nextInt(s.length)];
+        }
+        return clave;
     }
 }
