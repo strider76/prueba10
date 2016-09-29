@@ -11,7 +11,7 @@ package ejemplosvarios;
  */
 public class Electrodomestico {
     
-    private double precioBase=100.00;
+    protected double precioBase=100.00;
     private String color="BLANCO";
     private double peso=5.00;
     private char consumoEnergetico='F';
