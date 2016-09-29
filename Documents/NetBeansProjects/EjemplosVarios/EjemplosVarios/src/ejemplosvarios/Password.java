@@ -11,8 +11,8 @@ import java.util.Random;
  */
 public class Password {
     
-    int longitud;
-    String contraseña;
+    private int longitud;
+    private String contraseña;
     
     public Password(){
     
@@ -62,5 +62,18 @@ public class Password {
             clave+=s[ra.nextInt(s.length)];
         }
         return clave;
+    }
+    
+    public String getPassword(){
+        return this.contraseña;
+    }
+    
+    public int getLongitud(){
+        return this.longitud;
+    }
+    
+    public void setLongitud(int longitud){
+        this.longitud=longitud;
+        this.contraseña=this.generarPassword(longitud);
     }
 }
