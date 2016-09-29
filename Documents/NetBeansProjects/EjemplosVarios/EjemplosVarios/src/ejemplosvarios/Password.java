@@ -33,5 +33,26 @@ public class Password {
         }
     }
     
-    
+    public boolean esFuerte(){
+        int mayusculas=0;
+        int minusculas=0;
+        int numeros=0;
+        
+        for (int i=0;i<this.longitud;i++){
+            if  (Character.isDigit(this.contraseña.charAt(i))==false){
+                if (Character.isLowerCase(this.contraseña.charAt(i)))
+                    minusculas++;
+                else
+                    mayusculas++;
+                
+            } else {
+                numeros++;
+            }
+        }
+        
+        if ((mayusculas>=2)&&(minusculas>=1)&&(numeros>=5))
+            return true;
+        else
+            return false;
+    }
 }
