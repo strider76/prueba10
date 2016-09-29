@@ -22,6 +22,7 @@ public class Password {
     
     public Password (int longitud) {
         
+        this.longitud=longitud;
         this.contraseña=this.generarPassword(longitud);
         
     }

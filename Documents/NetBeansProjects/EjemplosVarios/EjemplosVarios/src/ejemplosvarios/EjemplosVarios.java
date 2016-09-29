@@ -61,6 +61,23 @@ public class EjemplosVarios {
         System.out.println("La Persona2 es "+ ((persona2.esMayorDeEdad())?"mayor":"menor")+" de edad");
         System.out.println("La Persona3 es "+ ((persona3.esMayorDeEdad())?"mayor":"menor")+" de edad");
         
+        System.out.println("Introduzca longitud de la lista: ");
+        int longitud=sc.nextInt();
+        Password[] lista=new Password[longitud];
+        boolean[] arrayEsFuerte=new boolean[longitud];
+        System.out.println("Introduzca la longitud de los password: ");
+        int longPassword=sc.nextInt();
+        
+        for (int i=0;i<longitud;i++){
+            lista[i]=new Password(longPassword);
+            arrayEsFuerte[i]=lista[i].esFuerte();
+            System.out.println("Clave "+(i+1)+": "+lista[i].getPassword()+" clave "+ ((arrayEsFuerte[i])?"Fuerte":"Debil"));
+        }
+        
+        
+        
+        
+        
     }
     
 }
