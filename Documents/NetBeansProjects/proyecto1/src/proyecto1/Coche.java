@@ -17,5 +17,7 @@ public class Coche {
         this.matricula=matricula;
     }
     
-    
+    public void setMatriula(String matricula){
+        this.matricula=matricula;
+    }
 }
