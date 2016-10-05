@@ -17,7 +17,10 @@ public class Coche {
     private int cilindrada;
     
     public Coche (String matricula, String marca, String modelo, int cilindrada){
-        
+        this.setMatricula(matricula);
+        this.setMarca(marca);
+        this.setModelo(modelo);
+        this.setCilindrada(cilindrada);
     }
     
     public void setMatricula(String matricula){
